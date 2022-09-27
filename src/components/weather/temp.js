@@ -2,14 +2,14 @@ import React, { useState,useEffect } from 'react';
 import Weathercard from "./weathercard";
 import "./style.css";
 
-
-
+const myVar = process.env.REACT_APP_API_SEC;
+console.log(myVar);
 const Temp = () => {
 const [searchValue,setSearchValue] = useState("pune");
 const [tempInfo,setTempInfo]= useState({});
 const getWeatherInfo= async ()=>{
   try {
-      let url =`https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=e7809e9bbe9003c2dbb9fff7012d5933`;
+      let url =`https://api.openweathermap.org/data/2.5/weather?q=${searchValue}&units=metric&appid=${process.env.REACT_APP_API_SEC}`;
 
       let res= await fetch(url);
       let data =await res.json();
